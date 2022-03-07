@@ -1,3 +1,4 @@
+//User input
 const getUserChoice = userInput => { userInput = userInput.toLowerCase()
     if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors') {
         return userInput
@@ -5,11 +6,39 @@ const getUserChoice = userInput => { userInput = userInput.toLowerCase()
         console.log('Error!')
     }
 }
-
+//random generated hands 
 const hands = ["Rock", "Paper", "Scissors"]
 const randomHands = hands[Math.floor(Math.random() * hands.length)];
 
 const getComputerChoice = () => randomHands
+
+//Determine a winner
+const determineWinner = (userChoice, computerChoice) => {
+    if (userChoice === computerChoice) {
+        return "The game is a tie!"
+    } 
+    if (userChoice === 'rock') {
+        if (computerChoice === 'paper') {
+            return 'The computer won!'
+        } else {
+            return 'You Won!'
+        }
+    }
+    if (userChoice === 'paper') {
+        if (computerChoice === 'scissors') {
+            return 'The computer won!'
+        } else {
+            return 'You won!'
+        }
+    }
+    if (userChoice === 'scissors') {
+        if (computerChoice === 'rock') {
+            return 'The computer won!'
+        } else {
+            return 'You won!'
+        }
+    }
+}
 
 
 
