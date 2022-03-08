@@ -1,4 +1,5 @@
-//User input
+//User input 
+
 const getUserChoice = userInput => { userInput = userInput.toLowerCase()
     if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors') {
         return userInput
@@ -8,9 +9,10 @@ const getUserChoice = userInput => { userInput = userInput.toLowerCase()
 }
 //random generated hands 
 const hands = ["Rock", "Paper", "Scissors"]
-const randomHands = hands[Math.floor(Math.random() * hands.length)];
+const randomHands = hands[Math.floor(Math.random() * hands.length)].toLowerCase();
 
 const getComputerChoice = () => randomHands
+
 
 //Determine a winner
 const determineWinner = (userChoice, computerChoice) => {
@@ -41,6 +43,13 @@ const determineWinner = (userChoice, computerChoice) => {
 }
 
 
+//Play game
+const playGame = () => {
+    let userChoice = getUserChoice('rock')
+    let computerChoice = getComputerChoice()
+    console.log('You threw: ' + userChoice);
+    console.log('The computer threw: ' + computerChoice);
+    console.log(determineWinner(userChoice, computerChoice))
+}
 
-
-
+playGame()
