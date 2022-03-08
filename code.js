@@ -3,9 +3,12 @@
 const getUserChoice = userInput => { userInput = userInput.toLowerCase()
     if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors') {
         return userInput
+    } else if (userInput === 'bomb') {
+        return userInput
     } else {
         console.log('Error!')
     }
+    
 }
 //random generated hands 
 const hands = ["Rock", "Paper", "Scissors"]
@@ -19,6 +22,9 @@ const determineWinner = (userChoice, computerChoice) => {
     if (userChoice === computerChoice) {
         return "The game is a tie!"
     } 
+    if (userChoice === 'bomb') {
+        return "You activated secret Cheat Code = Winner!!!"
+    }
     if (userChoice === 'rock') {
         if (computerChoice === 'paper') {
             return 'The computer won!'
@@ -45,7 +51,7 @@ const determineWinner = (userChoice, computerChoice) => {
 
 //Play game
 const playGame = () => {
-    let userChoice = getUserChoice('rock')
+    let userChoice = getUserChoice('bomb')
     let computerChoice = getComputerChoice()
     console.log('You threw: ' + userChoice);
     console.log('The computer threw: ' + computerChoice);
